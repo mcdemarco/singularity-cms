@@ -1,13 +1,13 @@
 <?php
 define('ROOT_DIR', realpath(dirname(__FILE__)) .'/');
-define('CONTENT_DIR', ROOT_DIR .'content/'); //change this to change which folder you want your content to be stored in
+define('CONTENT_DIR', ROOT_DIR .'mcdwiki/'); //change this to change which folder you want your content to be stored in
 
 // Change this to your strapdown.js location before using! Edit the theme tag below to use different Bootswatch themes.
 // It is recommended that you serve strapdown.js locally, rather than from strapdownjs' website:
-// $strapdown_location = "/strapdown.js";
-$strapdown_location = "http://strapdownjs.com/v/0.2/strapdown.js";
-$bootswatch_theme = "cerulean"; //choose any bootstrap theme included in strapdown.js!
-$file_format = ".txt"; //change this to choose a file type, be sure to include the period
+$strapdown_location = "/strapdown/v/0.2/strapdown.js";
+// $strapdown_location = "http://strapdownjs.com/v/0.2/strapdown.js";
+$bootswatch_theme = "spacelab"; //choose any bootstrap theme included in strapdown.js!
+$file_format = ".md"; //change this to choose a file type, be sure to include the period
 
 // Get request url and script url
 $url = '';
