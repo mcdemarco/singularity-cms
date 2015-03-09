@@ -56,7 +56,7 @@ foreach ($dir as $fileinfo) {
 
 <xmp theme="<?php echo $bootswatch_theme; ?>" style="display:none;">
 
-<div class="btn-toolbar" role="toolbar" aria-label="grouping">
+<div class="btn-toolbar pull-right" role="toolbar" aria-label="grouping">
   <div class="btn-group btn-group-xs" role="group" aria-label="home">
      <button type="button" class="btn btn-default"><a href="/">home</a></button>
   </div>
