@@ -33,6 +33,20 @@ if(is_dir($file)) {
 // Show 404 if file cannot be found
 if(file_exists($file)) $content = file_get_contents($file);
 else $content = file_get_contents(CONTENT_DIR .'404' . $file_format);
+
+// Generate the index.
+$dir = new DirectoryIterator(CONTENT_DIR . $path);
+$index = '';
+foreach ($dir as $fileinfo) {
+  $displayName = explode($file_format, $fileinfo)[0];
+  if (!$fileinfo->isDot() && ("." . $fileinfo->getExtension() == $file_format || $fileinfo->getExtension() == "") && ($displayName != "404")) {
+    $index .= '<button type="button" class="btn btn-default"><a href="/';
+    if ($path != "") $index .= $path . "/";
+    $index .= $displayName . '">' . $displayName;
+    if ($fileinfo->isDir()) $index .=  "/";
+    $index .= "</a></button>";
+  }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,17 +61,7 @@ else $content = file_get_contents(CONTENT_DIR .'404' . $file_format);
      <button type="button" class="btn btn-default"><a href="/">home</a></button>
   </div>
   <div class="btn-group btn-group-xs" role="group" aria-label="thisDir">
-<?php
-$dir = new DirectoryIterator(CONTENT_DIR . $path);
-foreach ($dir as $fileinfo) {
-  $displayName = explode($file_format, $fileinfo)[0];
-  if (!$fileinfo->isDot() && ("." . $fileinfo->getExtension() == $file_format || $fileinfo->getExtension() == "") && ($displayName != "404")) {
-    ?>
-    <button type="button" class="btn btn-default"><a href="/<?php if($path != "") {echo $path; echo "/";} echo $displayName; ?>"><?php echo $displayName; if ($fileinfo->isDir()) echo "/"; ?></a></button>
-    <?php
-  }
-}
-?>
+  <?php echo $index; ?>
   </div>
   <div class="btn-group btn-group-xs" role="group" aria-label="up">
     <button type="button" class="btn btn-default"><a href="../">up</a></button>
