@@ -8,6 +8,7 @@ define('CONTENT_DIR', ROOT_DIR .'content/'); //change this to change which folde
 $strapdown_location = "http://strapdownjs.com/v/0.2/strapdown.js";
 $bootswatch_theme = "cerulean"; //choose any bootstrap theme included in strapdown.js!
 $file_format = ".txt"; //change this to choose a file type, be sure to include the period
+$site_name = "scms"; //change as desired
 
 // Get request url and script url
 $url = '';
@@ -40,35 +41,32 @@ $index = '';
 foreach ($dir as $fileinfo) {
   $displayName = explode($file_format, $fileinfo)[0];
   if (!$fileinfo->isDot() && ("." . $fileinfo->getExtension() == $file_format || $fileinfo->getExtension() == "") && ($displayName != "404")) {
-    $index .= '<button type="button" class="btn btn-default"><a href="/';
+    $index .= '<li><a href="/';
     if ($path != "") $index .= $path . "/";
     $index .= $displayName . '">' . $displayName;
     if ($fileinfo->isDir()) $index .=  "/";
-    $index .= "</a></button>";
+    $index .= "</a></li>";
   }
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title><?php echo $url; ?></title>
+<title><?php echo ($url != '' ? $url : $site_name); ?></title>
 </head>
 
 <xmp theme="<?php echo $bootswatch_theme; ?>" style="display:none;">
 
-<div class="btn-toolbar pull-right" role="toolbar" aria-label="grouping">
-  <div class="btn-group btn-group-xs" role="group" aria-label="home">
-     <button type="button" class="btn btn-default"><a href="/">home</a></button>
-  </div>
-  <div class="btn-group btn-group-xs" role="group" aria-label="thisDir">
+<div id="scms-siteNavToolbar" class="navbar-inverse" aria-label="grouping">
+  <ul class="nav navbar-nav" role="group" aria-label="home">
+    <li><a href="/">home</a></li>
   <?php echo $index; ?>
-  </div>
-  <div class="btn-group btn-group-xs" role="group" aria-label="up">
-    <button type="button" class="btn btn-default"><a href="../">up</a></button>
-  </div>
+    <li><a href="../">up</a></li>
+  </ul>
 </div>
 
 <?php echo $content; ?>
 </xmp>
 <script src="<?php echo $strapdown_location; ?>"></script>
+<script src="/js/toc.js"></script>
 </html>
