@@ -57,7 +57,7 @@ foreach ($dir as $fileinfo) {
 
 <xmp theme="<?php echo $bootswatch_theme; ?>" style="display:none;">
 
-<div id="scms-siteNavToolbar" class="navbar-inverse" aria-label="grouping">
+<div id="scms-siteNavToolbar" aria-label="grouping">
   <ul class="nav navbar-nav" role="group" aria-label="home">
     <li><a href="/">home</a></li>
   <?php echo $index; ?>
