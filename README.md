@@ -27,7 +27,7 @@ Singularity uses [strapdown.js](#credits) to mark up HTML. Strapdown.js also wor
 
 ## Credits
 
-Changes by M.C.DeMarco, 2015, under the GNU Affero General Public License Version 3
+Changes by M.C.DeMarco, 2015, under the GNU Affero General Public License Version 3  
 Copyright (c) 2012-2014 Christopher J. Su  
-Inspired by Pico and Stacey.
+Inspired by Pico and Stacey.  
 Uses [strapdown.js](http://strapdownjs.com/), which in turn, uses [marked](https://github.com/chjj/marked/), Google Code Prettify, Bootswatch, and [Bootstrap](http://twitter.github.com/bootstrap/).
