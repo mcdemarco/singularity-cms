@@ -1,14 +1,16 @@
 # Singularity
 
-Singularity is a simple, flat file CMS which marks up HTML using Markdown. It's short and concise, taking nothing but less than 40 lines of PHP code and an htaccess file.
+Singularity is a simple, flat file CMS which marks up HTML using Markdown. It was short and concise, taking nothing but less than 40 lines of PHP code and an htaccess file, until I forked it and added a few bits.
 
 ## Customization
 
-The content directory, file type, and Bootstrap theme can be easily customized by simply editing the PHP variables provided:
+The content directory, file type, Bootstrap theme, and site name can be easily customized by simply editing the PHP variables provided:
 
 	define('CONTENT_DIR', ROOT_DIR .'content/'); //change this to change which folder you want your content to be stored in
 	$bootswatch_theme = "cerulean"; //choose any bootstrap theme included in strapdown.js!
 	$file_format = ".txt"; //change this to choose a file type, be sure to include the period
+	$site_name = "Singularity"; //change as desired
+
 
 ## URLs
 
@@ -24,6 +26,8 @@ The script can also handle different filetypes (just modify one line of PHP).
 Singularity uses [strapdown.js](#credits) to mark up HTML. Strapdown.js also works with various [Bootstrap](#credits) themes. You can easily add your own HTML and CSS styles, headers, and footers. It's as easy as editing a flat HTML file.
 
 ## Credits
+
+Changes by M.C.DeMarco, 2015, under the GNU Affero General Public License Version 3
 Copyright (c) 2012-2014 Christopher J. Su  
 Inspired by Pico and Stacey.
 Uses [strapdown.js](http://strapdownjs.com/), which in turn, uses [marked](https://github.com/chjj/marked/), Google Code Prettify, Bootswatch, and [Bootstrap](http://twitter.github.com/bootstrap/).
