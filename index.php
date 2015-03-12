@@ -38,17 +38,22 @@ else $content = file_get_contents(CONTENT_DIR .'404' . $file_format);
 
 // Generate the index.
 $dir = new DirectoryIterator(CONTENT_DIR . $path);
-$index = '';
+$index = <<< EOF
+<div id="scms-siteNavToolbar" aria-label="grouping">
+  <ul class="nav navbar-nav" role="group" aria-label="home">
+    <li><a href="/">home</a></li>
+EOF;
+
 foreach ($dir as $fileinfo) {
   $displayName = explode($file_format, $fileinfo)[0];
-  if (!$fileinfo->isDot() && ("." . $fileinfo->getExtension() == $file_format || $fileinfo->getExtension() == "") && ($displayName != "404")) {
-    $index .= '<li><a href="/';
-    if ($path != "") $index .= $path . "/";
-    $index .= $displayName . '">' . $displayName;
-    if ($fileinfo->isDir()) $index .=  "/";
-    $index .= "</a></li>";
+  if (!$fileinfo->isDot() && ($fileinfo->getExtension() == "" || "." . $fileinfo->getExtension() == $file_format) && ($displayName != "404")) {
+    $index .= '<li><a href="/' . ($path != '' ? $path . '/' : '') . $displayName . '">';
+    $index .= $displayName . ($fileinfo->isDir() ? '/' : '') . '</a></li>';
   }
 }
+
+$index .= ($path != "" ? '<li><a href="../">up</a></li>' : '') . '</ul></div>';
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -58,13 +63,7 @@ foreach ($dir as $fileinfo) {
 
 <xmp theme="<?php echo $bootswatch_theme; ?>" style="display:none;">
 
-<div id="scms-siteNavToolbar" aria-label="grouping">
-  <ul class="nav navbar-nav" role="group" aria-label="home">
-    <li><a href="/">home</a></li>
-  <?php echo $index; ?>
-    <li><a href="../">up</a></li>
-  </ul>
-</div>
+<?php echo $index; ?>
 
 <?php echo $content; ?>
 </xmp>
