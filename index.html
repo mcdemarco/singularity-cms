@@ -1,53 +1,54 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Singularity-cms : Singularity is a simple, flat file, markdown CMS in a single PHP file.">
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Singularity-cms</title>
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>singularity-cms by mcdemarco</title>
   </head>
 
   <body>
+    <div id="container">
+      <div class="inner">
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/csu/singularity-cms">View on GitHub</a>
-
-          <h1 id="project_title">Singularity-cms</h1>
-          <h2 id="project_tagline">Singularity is a simple, flat file, markdown CMS in a single PHP file.</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/csu/singularity-cms/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/csu/singularity-cms/tarball/master">Download this project as a tar.gz file</a>
-            </section>
+        <header>
+          <h1>singularity-cms</h1>
+          <h2>Singularity is a simple, flat file, markdown CMS in a single PHP file.</h2>
         </header>
-    </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>
-<a name="singularity" class="anchor" href="#singularity"><span class="octicon octicon-link"></span></a>Singularity</h1>
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/mcdemarco/singularity-cms/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/mcdemarco/singularity-cms/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/mcdemarco/singularity-cms" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
 
-<p>Singularity is a simple, flat file CMS which marks up HTML using Markdown. It's short and concise, taking nothing but less than 40 lines of PHP code and an htaccess file.</p>
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a id="singularity" class="anchor" href="#singularity" aria-hidden="true"><span class="octicon octicon-link"></span></a>Singularity</h1>
+
+<p>Singularity is a simple, flat file CMS which marks up HTML using Markdown. It was short and concise, taking nothing but less than 40 lines of PHP code and an htaccess file, until I forked it and added a few bits.  New features include automatic site menus and automatic tables of contents for individual Markdown files (a la Wikipedia).</p>
 
 <h2>
-<a name="customization" class="anchor" href="#customization"><span class="octicon octicon-link"></span></a>Customization</h2>
+<a id="customization" class="anchor" href="#customization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customization</h2>
 
-<p>The content directory, file type, and Bootstrap theme can be easily customized by simply editing the PHP variables provided:</p>
+<p>The content directory, file type, Bootstrap theme, and site name can be easily customized by simply editing the PHP variables provided:</p>
 
 <pre><code>define('CONTENT_DIR', ROOT_DIR .'content/'); //change this to change which folder you want your content to be stored in
 $bootswatch_theme = "cerulean"; //choose any bootstrap theme included in strapdown.js!
 $file_format = ".txt"; //change this to choose a file type, be sure to include the period
+$site_name = "Singularity"; //change as desired
 </code></pre>
 
 <h2>
-<a name="urls" class="anchor" href="#urls"><span class="octicon octicon-link"></span></a>URLs</h2>
+<a id="urls" class="anchor" href="#urls" aria-hidden="true"><span class="octicon octicon-link"></span></a>URLs</h2>
 
 <p>A file at content/index.html can be accessed at /.<br>
 A file at content/text.txt can be accessed at /text.<br>
@@ -57,38 +58,26 @@ If a file does not exist or cannot be found, content/404.txt will be used in its
 The script can also handle different filetypes (just modify one line of PHP).</p>
 
 <h2>
-<a name="markdown" class="anchor" href="#markdown"><span class="octicon octicon-link"></span></a>Markdown</h2>
+<a id="markdown" class="anchor" href="#markdown" aria-hidden="true"><span class="octicon octicon-link"></span></a>Markdown</h2>
 
 <p>Singularity uses <a href="#credits">strapdown.js</a> to mark up HTML. Strapdown.js also works with various <a href="#credits">Bootstrap</a> themes. You can easily add your own HTML and CSS styles, headers, and footers. It's as easy as editing a flat HTML file.</p>
 
 <h2>
-<a name="credits" class="anchor" href="#credits"><span class="octicon octicon-link"></span></a>Credits</h2>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Credits</h2>
 
-<p>Copyright (c) 2012 Christopher J. Su<br>
-Inspired by Pico and Stacey.
+<p>Changes by M.C.DeMarco, 2015, under the GNU Affero General Public License Version 3<br>
+Copyright (c) 2012-2014 Christopher J. Su<br>
+Inspired by Pico and Stacey.<br>
 Uses <a href="http://strapdownjs.com/">strapdown.js</a>, which in turn, uses <a href="https://github.com/chjj/marked/">marked</a>, Google Code Prettify, Bootswatch, and <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>.</p>
-      </section>
+        </section>
+
+        <footer>
+          singularity-cms is maintained by <a href="https://github.com/mcdemarco">mcdemarco</a><br>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
     </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Singularity-cms maintained by <a href="https://github.com/csu">csu</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-34248999-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-
-
   </body>
 </html>
